@@ -95,3 +95,8 @@ form{
     background-color: #00A3A3;
     color: white;
 }
+
+.cancelProjectBtn:hover, .submitProjectBtn:hover{
+    filter: brightness(110%);
+    cursor: pointer;
+}

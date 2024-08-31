@@ -48,4 +48,20 @@ export default class Project {
         console.log(`Tasks:`);
         this._tasks.forEach(task => task.displayTask());
     }
+
+    toJson(){
+        return {
+            title: this._title,
+            description: this._description,
+            dueDate: this._dueDate,
+            priority: this._priority,
+            tasks: this._tasks.map(task => task.toJSON())
+        }
+    }
+
+    static fromJSON(data) {
+        const project = new Project(data.title, data.description, data.dueDate, data.priority);
+        project._tasks = data.tasks.map(Todo.fromJSON); // Deserialize tasks
+        return project;
+    }
 }

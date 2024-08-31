@@ -20,4 +20,18 @@ export default class Todo {
     changeIsCompleted(){
         this._isCompleted = !this._isCompleted;
     }
+
+    toJSON() {
+        return {
+            title: this._title,
+            description: this._description,
+            isCompleted: this._isCompleted
+        };
+    }
+
+    static fromJSON(data) {
+        const todo = new Todo(data.title, data.description);
+        todo._isCompleted = data.isCompleted;
+        return todo;
+    }
 }
