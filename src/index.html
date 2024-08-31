@@ -4,8 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="header">
+        <h1>To-Do List
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#333333">
+            <path d="M320-280q17 0 28.5-11.5T360-320q0-17-11.5-28.5T320-360q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160q17 0 28.5-11.5T360-480q0-17-11.5-28.5T320-520q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160q17 0 28.5-11.5T360-640q0-17-11.5-28.5T320-680q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Zm120 320h240v-80H440v80Zm0-160h240v-80H440v80Zm0-160h240v-80H440v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+        </h1>
+    </div>
+    <div class="bodyContainer">
+        <div class="addTask">
+            <button id="addProject">Create Project</button>
+            <div class="projectList">
+
+            </div>
+        </div>
+        <div class="contentContainer">
+            <h2>Task to complete</h2>
+            <div class="content">
+
+            </div>
+        </div>
+    </div>
+
+    <dialog id="addProjectDialog">
+        <form class="project">
+            <div class="projectGroup">
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text" placeholder="Enter your project title..."><br>
+            </div>
+
+            <div class="projectGroup">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="5" cols="50" placeholder="Enter your project description..."></textarea><br>
+            </div>
+
+            <div class="projectGroup">
+                <label for="dueDate">Due date</label>
+                <input type="date" name="dueDate" id="dueDate"><br>
+            </div>
+
+            <div class="projectGroup">
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select><br>
+            </div>
+
+            <div class="projectBtns">
+                <button class="cancelProjectBtn">Cancel</button>
+                <button id="submitProject" class="submitProjectBtn" type="submit">Submit</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
