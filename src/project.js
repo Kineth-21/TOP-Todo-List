@@ -1,6 +1,6 @@
 import Todo from './todo.js'; // Import the Todo class
 
-class Project {
+export default class Project {
     constructor(title, description, dueDate, priority) {
         this._title = title;
         this._description = description;
@@ -49,5 +49,3 @@ class Project {
         this._tasks.forEach(task => task.displayTask());
     }
 }
-
-export default Project;
