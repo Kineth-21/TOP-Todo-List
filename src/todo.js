@@ -1,12 +1,12 @@
 export default class Todo {
-    constructor(title, description){
-        this._title = title;
+    constructor(task, description){
+        this._task = task;
         this._description = description;
         this._isCompleted = false;
     }
 
-    get getTitle(){
-        return this._title;
+    get getTask(){
+        return this._task;
     }
 
     get getDescription(){
@@ -23,14 +23,14 @@ export default class Todo {
 
     toJSON() {
         return {
-            title: this._title,
+            task: this._task,
             description: this._description,
             isCompleted: this._isCompleted
         };
     }
 
     static fromJSON(data) {
-        const todo = new Todo(data.title, data.description);
+        const todo = new Todo(data.task, data.description);
         todo._isCompleted = data.isCompleted;
         return todo;
     }

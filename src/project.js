@@ -6,34 +6,39 @@ export default class Project {
         this._description = description;
         this._dueDate = dueDate;
         this._priority = priority;
-        this._tasks = []; // Array to store Todo tasks
+        this._todos = []; // Array to store Todo tasks
     }
 
     // Getters for project properties
-    get getTitle() {
+    // Getter for title
+    get title() {
         return this._title;
     }
 
-    get getDescription() {
+    // Getter for description
+    get description() {
         return this._description;
     }
 
-    get getDueDate() {
+    // Getter for dueDate
+    get dueDate() {
         return this._dueDate;
     }
 
-    get getPriority() {
+    // Getter for priority
+    get priority() {
         return this._priority;
     }
 
-    get getTasks() {
+    // Getter for tasks
+    get todos() {
         return this._tasks;
     }
 
     // Method to add a new task to the project
-    addTask(task) {
+    addTodo(todo) {
         if (task instanceof Todo) {
-            this._tasks.push(task);
+            this._tasks.push(todo);
         } else {
             console.error("Invalid task. Must be an instance of Todo.");
         }

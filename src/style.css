@@ -29,7 +29,7 @@ body{
     height: 100%;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 9fr;
     font-size: clamp(1rem, 1.4vw, 50px);
     color: #333333;
 }
@@ -54,9 +54,23 @@ body{
     cursor: pointer;
 }
 
+.contentHeader{
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
 .contentContainer{
     padding: 20px;
     /* background-color: blueviolet; */
+}
+
+#content{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 20px;
 }
 
 #addProjectDialog{
@@ -99,4 +113,10 @@ form{
 .cancelProjectBtn:hover, .submitProjectBtn:hover{
     filter: brightness(110%);
     cursor: pointer;
+}
+
+.projectContainer{
+    padding: 10px;
+    background-color: #008080;
+    color: white;
 }
