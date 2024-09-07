@@ -1,9 +1,9 @@
 import { updateContent } from "./content.js";
 import Project from "./project.js";
 
-const projects = [new Project("hello", "testing", new Date(), "Low")
-    , new Project("hellofafafasfsssssssssssssssssssssssssssssafsa", "testing", new Date(), "Low")
-    , new Project("hello", "testing", new Date(), "Low")
+const projects = [new Project("Baking", "I want to bake a cake for my friend's birthday.", new Date(), "Low")
+    , new Project("Guitar", "I want to learn how to play the guitar", new Date(), "Low")
+    , new Project("Spanish", "I want to learn how to speak Spanish", new Date(), "Low")
 ];
 
 function addProject(project){;

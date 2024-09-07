@@ -11,6 +11,7 @@ export function updateContent(project) {
     contentTitle.textContent = "Project: " + project._title;
 
     const addTodo = document.createElement("button");
+    addTodo.classList.add("addTodo");
     addTodo.textContent = "Add todo";
     addTodo.addEventListener("click", () => {
         showTodoDialog.showModal();
@@ -20,8 +21,8 @@ export function updateContent(project) {
     contentDescription.textContent = "Description: " + project._description;
 
     content.appendChild(contentTitle);
-    contentTitle.appendChild(addTodo);
     content.appendChild(contentDescription);
+    content.append(addTodo);
 
     // Remove previous event listener to avoid multiple bindings
     const submitTodo = document.querySelector("#submitTodo");
