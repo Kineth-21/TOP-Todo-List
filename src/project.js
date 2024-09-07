@@ -6,7 +6,7 @@ export default class Project {
         this._description = description;
         this._dueDate = dueDate;
         this._priority = priority;
-        this._todos = []; // Array to store Todo tasks
+        this._tasks = []; // Array to store Todo tasks
     }
 
     // Getters for project properties
@@ -37,7 +37,7 @@ export default class Project {
 
     // Method to add a new task to the project
     addTodo(todo) {
-        if (task instanceof Todo) {
+        if (todo instanceof Todo) {
             this._tasks.push(todo);
         } else {
             console.error("Invalid task. Must be an instance of Todo.");

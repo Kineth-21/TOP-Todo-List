@@ -131,3 +131,17 @@ form{
     background-color: #008080;
     color: white;
 }
+
+#todoContent{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 10px;
+}
+
+.todoContainer{
+    padding: 10px;
+    background-color: #00A3A3;
+    color: white;
+}

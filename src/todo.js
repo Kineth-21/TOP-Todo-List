@@ -5,15 +5,15 @@ export default class Todo {
         this._isCompleted = false;
     }
 
-    get getTask(){
+    get task(){
         return this._task;
     }
 
-    get getDescription(){
+    get description(){
         return this._description;
     }
     
-    get getIsCompleted(){
+    get isCompleted(){
         return this._isCompleted;
     }
 
