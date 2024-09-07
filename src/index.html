@@ -65,5 +65,23 @@
             </div>
         </form>
     </dialog>
+    <dialog id="addTodoDialog">
+        <form class="todoForm">
+            <div class="todoGroup">
+                <label for="todoTask">Task</label>
+                <input id="todoTask" name="todoTask" type="text" placeholder="Enter your task."><br>
+            </div>
+
+            <div class="todoGroup">
+                <label for="todoDescription">Description</label>
+                <textarea id="todoDescription" name="todoDescription" rows="5" cols="50" placeholder="Enter your task description..."></textarea><br>
+            </div>
+
+            <div class="todoBtns">
+                <button class="cancelTodo">Cancel</button>
+                <button id="submitTodo" class="submitTodo" type="submit">Submit</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
