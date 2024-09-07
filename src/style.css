@@ -36,13 +36,14 @@ body{
 
 .addTask{
     /* background-color: aqua; */
+    width: 100%;
     padding: 20px;
     border-right: black;
     box-shadow: 4px 0 2px -2px gray;
 }
 
 #addProject{
-    width: 100%;
+    width: clamp(7px, 10ch, 200px);
     padding: 10px;
     background-color: #00A3A3;
     color: white;
@@ -52,6 +53,14 @@ body{
 #addProject:hover{
     filter: brightness(110%);
     cursor: pointer;
+}
+
+.projectList{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .contentHeader{
@@ -67,10 +76,10 @@ body{
 
 #content{
     margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-auto-rows: 250px;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 #addProjectDialog{
@@ -116,6 +125,8 @@ form{
 }
 
 .projectContainer{
+    width: clamp(5ch, 8ch, 15ch);
+    overflow: hidden;
     padding: 10px;
     background-color: #008080;
     color: white;
