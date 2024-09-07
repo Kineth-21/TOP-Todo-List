@@ -1,5 +1,6 @@
 import Todo from "./todo";
 import { displayTodo } from "./todoList";
+import { formatDueDate, areDatesEqual, daysUntilDue, isDueDateBeforeToday } from "./dateMethods";
 
 const content = document.querySelector("#content");
 const showTodoDialog = document.querySelector("#addTodoDialog");
@@ -20,9 +21,34 @@ export function updateContent(project) {
     const contentDescription = document.createElement("div");
     contentDescription.textContent = "Description: " + project._description;
 
+    const contentDueDate = document.createElement("div");
+    contentDueDate.textContent = "Due Date: " + formatDueDate(project._dueDate);
+    
+    const dueDate = new Date(project._dueDate);
+    dueDate.setHours(0, 0, 0, 0);
+    
+    const overdue = document.createElement("div");
+
+    if(isDueDateBeforeToday(dueDate)){
+        overdue.textContent = "THIS PROJECT IS OVERDUE!";
+        overdue.style.color= "red";
+        console.log("Due Date:", dueDate);
+
+    }
+    else if(areDatesEqual(dueDate)){
+        overdue.textContent = "THIS PROJECT IS DUE TODAY!";
+        overdue.style.color= "red";
+    }
+    else{
+        overdue.textContent = "There is still " + daysUntilDue(dueDate) + " days till project is due.";
+    }
+    
     content.appendChild(contentTitle);
     content.appendChild(contentDescription);
+    content.appendChild(contentDueDate);
+    content.appendChild(overdue);
     content.append(addTodo);
+    
 
     // Remove previous event listener to avoid multiple bindings
     const submitTodo = document.querySelector("#submitTodo");
