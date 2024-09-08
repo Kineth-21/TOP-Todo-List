@@ -1,5 +1,6 @@
 import { updateContent } from "./content.js";
 import Project from "./project.js";
+import { displayTodo } from "./todoList.js";
 
 const projects = [new Project("Baking", "I want to bake a cake for my friend's birthday.", new Date(2024, 12, 24), "High")
     , new Project("Guitar", "I want to learn how to play the guitar", new Date(2024, 1, 21), "Low")
@@ -14,6 +15,12 @@ function removeProject(project){;
     projects.pop(project);
 }
 
+export let activeProject = null; // Global state for the active project
+
+function setActiveProject(project) {
+    activeProject = project;
+}
+
 function displayProjects(){
     const projectList = document.querySelector(".projectList");
     projectList.textContent = "";
@@ -26,7 +33,16 @@ function displayProjects(){
 
         projectList.appendChild(projectContainer);
 
-        projectContainer.addEventListener("click", () => updateContent(project))
+        function handleClick(event) {
+            setActiveProject(project);
+            event.preventDefault();
+            updateContent(project);
+            displayTodo(project);
+        }
+
+        projectContainer.removeEventListener("click", handleClick);
+
+        projectContainer.addEventListener("click", handleClick);
 
         if(project._priority === "Medium"){
             projectContainer.style.backgroundColor = "#FFDB58";
@@ -36,6 +52,8 @@ function displayProjects(){
         }
     });
 }
+
+
 
 // function saveToLocalStorage() {
 //     const projectsJson = projects.map(project => project.toJson());

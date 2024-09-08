@@ -1,6 +1,7 @@
 import Todo from "./todo";
 import { displayTodo } from "./todoList";
 import { formatDueDate, areDatesEqual, daysUntilDue, isDueDateBeforeToday } from "./dateMethods";
+import { activeProject } from "./projectList";
 
 const content = document.querySelector("#content");
 const showTodoDialog = document.querySelector("#addTodoDialog");
@@ -32,8 +33,6 @@ export function updateContent(project) {
     if(isDueDateBeforeToday(dueDate)){
         overdue.textContent = "THIS PROJECT IS OVERDUE!";
         overdue.style.color= "red";
-        console.log("Due Date:", dueDate);
-
     }
     else if(areDatesEqual(dueDate)){
         overdue.textContent = "THIS PROJECT IS DUE TODAY!";
@@ -55,17 +54,25 @@ export function updateContent(project) {
     submitTodo.removeEventListener("click", handleSubmitTodo);
     submitTodo.addEventListener("click", handleSubmitTodo);
 
-    function handleSubmitTodo(event) {
+    
+
+    displayTodo(project); // Initial display
+}
+
+function handleSubmitTodo(event) {
         event.preventDefault();
         const task = document.querySelector("#todoTask").value;
         const description = document.querySelector("#todoDescription").value;
 
-        const toBeAddedTodo = new Todo(task, description);
-        project.addTodo(toBeAddedTodo);
-        showTodoDialog.close();
-        console.log(project._tasks);
-        displayTodo(project); // Ensure the display is updated
+        // const toBeAddedTodo = new Todo(task, description);
+        // project.addTodo(toBeAddedTodo);
+        // showTodoDialog.close();
+        // console.log(project._tasks);
+        // displayTodo(project); // Ensure the display is updated
+        if (activeProject) {
+            activeProject.addTodo(new Todo(task, description));  // Add todo to the active project
+            // updateContent(activeProject);  // Update content to reflect new todo
+            displayTodo(activeProject);
+            showTodoDialog.close();
+        }
     }
-
-    displayTodo(project); // Initial display
-}
