@@ -1,7 +1,7 @@
 import Todo from "./todo";
 import { displayTodo } from "./todoList";
 import { formatDueDate, areDatesEqual, daysUntilDue, isDueDateBeforeToday } from "./dateMethods";
-import { activeProject } from "./projectList";
+import { activeProject, loadFromLocalStorage, saveToLocalStorage } from "./projectList";
 
 const content = document.querySelector("#content");
 const showTodoDialog = document.querySelector("#addTodoDialog");
@@ -71,7 +71,7 @@ function handleSubmitTodo(event) {
         // displayTodo(project); // Ensure the display is updated
         if (activeProject) {
             activeProject.addTodo(new Todo(task, description));  // Add todo to the active project
-            // updateContent(activeProject);  // Update content to reflect new todo
+            saveToLocalStorage();
             displayTodo(activeProject);
             showTodoDialog.close();
         }

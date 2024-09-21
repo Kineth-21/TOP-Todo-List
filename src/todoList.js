@@ -1,3 +1,5 @@
+import { saveToLocalStorage } from "./projectList";
+
 export function displayTodo(project){
     const todoContents = document.querySelector("#todoContent");
     todoContents.textContent = "";
@@ -26,6 +28,7 @@ export function displayTodo(project){
         doneTask.addEventListener("click", () =>{
             project._tasks.splice(index, 1);
             displayTodo(project);
+            saveToLocalStorage();
         });
 
         todoContainer.appendChild(todoTask);

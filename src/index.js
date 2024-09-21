@@ -1,5 +1,5 @@
 import './style.css';
-import { addProject, displayProjects } from './projectList';
+import { addProject, displayProjects, loadFromLocalStorage } from './projectList';
 import Project from './project';
 import { displayTodo } from './todoList';
 
@@ -10,8 +10,8 @@ showProjectDialog.addEventListener("click", () =>{
     dialogProject.showModal();
 });
 
-displayProjects();
-displayTodo();
+// displayProjects();
+// displayTodo();
 
 const submitProject = document.querySelector("#submitProject");
 submitProject.addEventListener("click", (event)=>{
@@ -46,5 +46,11 @@ submitProject.addEventListener("click", (event)=>{
 
     addProject(project);
     dialogProject.close();
+    displayProjects();
+});
+
+// Load projects from localStorage when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+    loadFromLocalStorage();
     displayProjects();
 });

@@ -130,6 +130,9 @@ form{
     padding: 10px;
     background-color: #008080;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 #todoContent{
@@ -144,6 +147,22 @@ form{
     padding: 10px;
     background-color: #00A3A3;
     color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: scroll;
+}
+
+.todoTask,
+.todoDescription {
+    flex: 1 0 auto;
+    overflow: auto;
+    margin-bottom: 0; /* Ensure no margin between them */
+}
+
+.completeTodoBtn{
+    margin-top: auto;
 }
 
 .addTodo{
@@ -152,4 +171,13 @@ form{
     background-color: #00A3A3;
     color: white;
     font-size: 1rem;
+}
+
+.removeProjectBtn{
+    width: 24px;
+    height: 24px;
+}
+.removeProjectBtn:hover{
+    cursor: pointer;
+    color: white;
 }
