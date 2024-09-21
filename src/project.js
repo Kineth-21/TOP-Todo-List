@@ -58,14 +58,14 @@ export default class Project {
         return {
             title: this._title,
             description: this._description,
-            dueDate: this._dueDate,
+            dueDate: this._dueDate.toISOString(),
             priority: this._priority,
             tasks: this._tasks.map(task => task.toJSON())
         }
     }
 
     static fromJSON(data) {
-        const project = new Project(data.title, data.description, data.dueDate, data.priority);
+        const project = new Project(data.title, data.description, new Date(data.dueDate), data.priority);
         project._tasks = data.tasks.map(Todo.fromJSON); // Deserialize tasks
         return project;
     }
